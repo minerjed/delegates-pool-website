@@ -1,0 +1,37 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <img src="assets/images/xcash_logo.png" width="113" height="28" title="X-Cash Wallet">&nbsp;{{websiteName}}
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="xnavbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="xnavbar" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" routerLink="">
+          <span class="icon">
+            <fa-icon [icon]="faWallet"></fa-icon>
+          </span>
+          &nbsp;Wallets
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a title="Currency" class="navbar-link is-arrowless">
+            About
+          </a>
+          <div class="navbar-dropdown">
+              <a class="navbar-item">Version: {{versionInfo}}</a>
+            </div>
+          </div>
+      </div>
+      <div class="navbar-end">
+        <a title="Settings" class="navbar-item" routerLink="settings">
+          <span class="icon">
+            <fa-icon [icon]="faGear"></fa-icon>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>

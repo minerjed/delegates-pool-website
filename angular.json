@@ -32,7 +32,11 @@
             "styles": [
               "src/styles.sass"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/scripts/menut.js",
+              "/node_modules/jquery/dist/jquery.js",
+              "/node_modules/datatables.net/js/jquery.dataTables.js"
+            ]
           },
           "configurations": {
             "production": {
