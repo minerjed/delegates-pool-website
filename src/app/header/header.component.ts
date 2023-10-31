@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { faLock, faWallet, faAddressBook, faGear, faDollar } from '@fortawesome/free-solid-svg-icons';
+import { faLock, faCircleInfo, faAddressBook, faGear, faDollar } from '@fortawesome/free-solid-svg-icons';
+import { ConstantsService } from '../services/constants.service';
 
 @Component({
   selector: 'app-header',
@@ -8,23 +9,20 @@ import { faLock, faWallet, faAddressBook, faGear, faDollar } from '@fortawesome/
 })
 export class HeaderComponent {
 
-  constructor( ) { }
+  constructor(private constantsService: ConstantsService) { }
 
   title = 'xcash';
   faLock = faLock;
-  faWallet = faWallet;
+  faCircleInfo = faCircleInfo;
   faAddressBook = faAddressBook;
   faGear = faGear;
   faDollar = faDollar;
   websiteName: string = '';
-
-  versionInfo: string = '1.0.0';
-  //  make common file for constanants
+  versionInfo: string = '';
 
   async ngOnInit(): Promise<void> {
-    this.websiteName = window.location.hostname;
-
-    
+    this.websiteName = window.location.hostname.toUpperCase();
+    this.versionInfo = this.constantsService.delegatesVersionInfo;
   }
 
 }
