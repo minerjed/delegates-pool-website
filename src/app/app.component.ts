@@ -6,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
-  title = 'delegates-pool-website';
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-  }
 }

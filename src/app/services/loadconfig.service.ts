@@ -11,8 +11,12 @@ export class LoadconfigService {
   constructor(private http: HttpClient) { }
 
   async loadAppConfig() {
-    const dataObservable = this.http.get('assets/config/webconfig.json');
-    this.appConfig = await lastValueFrom(dataObservable);
+    try {
+      const dataObservable = this.http.get('/assets/config/webconfig.json');
+      this.appConfig = await lastValueFrom(dataObservable);
+    } catch (error) {
+      console.error("Error loading app config:", error);
+    }
   }
 
   getConfig() {

@@ -30,11 +30,11 @@ export class DelegateDetailsComponent {
   delegateType: string = '';
   voteCmd1: string = '';
   voteCmd2: string = '';
+  showSpinner: boolean = true;
 
   async ngOnInit() {
     const config = this.loadconfigService.getConfig();
     let websiteName = config.websiteName;
-
     if (websiteName) {
       const wsurl = 'https://api.xcash.live/v1/xcash/dpops/unauthorized/delegates/' + websiteName;
       const response: httpReturn = await this.xcashdelegatesService.getDelegates(wsurl);
@@ -59,6 +59,7 @@ export class DelegateDetailsComponent {
     } else {
       this.showMessage('Update the weconfig.json with your delegate name.');
     }
+    this.showSpinner = false;
   }
 
   showMessage(message: string): void {

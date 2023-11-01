@@ -5,5 +5,5 @@ import { Injectable } from '@angular/core';
 })
 
 export class ConstantsService {
-  public readonly delegatesVersionInfo: string = '1.0.0';
+  public readonly delegatesVersionInfo: string = '1.0.2';
 }
