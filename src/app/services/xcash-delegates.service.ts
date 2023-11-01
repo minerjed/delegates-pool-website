@@ -27,7 +27,6 @@ export class XcashDelegatesService {
         if (wsdata.hasOwnProperty("Error")) {
           return { status: false, message: wsdata.Error + ' (check the delegates name).', data: wsdata };
         } else {
-          console.log('noerror')
           return { status: true, message: 'Success.', data: wsdata };
         }
       }
