@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { XcashDelegatesService } from 'src/app/services/xcash-delegates.service';
 import { httpReturn } from 'src/app/models/http-Return';
-import { faUserPlus, faCircleInfo, faServer, faCheckToSlot, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus, faCircleInfo, faServer, faCheckToSlot, faMoneyBill, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { LoadconfigService } from 'src/app/services/loadconfig.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class DelegateDetailsComponent {
   faServer = faServer;
   faCheckToSlot = faCheckToSlot;
   faMoneyBill = faMoneyBill;
+  faCopy = faCopy;
   showInfo: boolean = false;
   wcount: number = 0;
   message: string = '';
@@ -32,6 +33,15 @@ export class DelegateDetailsComponent {
   voteCmd2: string = '';
   showSpinner: boolean = true;
   sharedDelegate: boolean = false;
+  tippyOptions = {
+    trigger: 'click',
+    hideOnClick: false,
+    onShow: (instance: any) => {
+      setTimeout(() => {
+        instance.hide();
+      }, 700);
+    }
+  };
 
   async ngOnInit() {
     const config = this.loadconfigService.getConfig();
@@ -67,6 +77,14 @@ export class DelegateDetailsComponent {
 
   showMessage(message: string): void {
     this.message = message;
+  }
+
+  copyToClipboard(value: string) {
+    navigator.clipboard.writeText(value)
+      .then(() => { })
+      .catch(err => {
+        this.showMessage('Failed to copy text: ' + err);
+      });
   }
 
 }

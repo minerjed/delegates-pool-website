@@ -8,6 +8,7 @@ import { DelegateDetailsComponent } from './pages/delegate-details/delegate-deta
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoadconfigService } from './services/loadconfig.service';
+import { NgxTippyModule } from 'ngx-tippy-wrapper';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { LoadconfigService } from './services/loadconfig.service';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    NgxTippyModule
   ],
   providers: [
     {

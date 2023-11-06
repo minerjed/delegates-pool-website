@@ -100,16 +100,26 @@
 								<div class="field">
 									<label class="label pr-1">
 										Use the xCash Destop Wallet or the xCash-wallet-cli for voting.  Here are examples of the xCash-wallet-cli voting commands for this delegate:</label>
-									<div class="control">
+									<div class="control has-icons-right">
 										<input class="input is-hovered is-fullwidth" type="text" name="vote1"
-											[(ngModel)]="voteCmd1" readonly>
+											[(ngModel)]="voteCmd1" readonly #vote1>
+											<span class="icon is-small is-right is-clickable"
+											(click)="copyToClipboard(vote1.value)" [ngxTippy]="'Text Coppied'"
+											[tippyProps]="tippyOptions">
+											<fa-icon [icon]="faCopy"></fa-icon>
+										</span>
 									</div>
 								</div>
 								<div class="field">
 									<label class="label pr-1">or</label>
-									<div class="control">
+									<div class="control has-icons-right">
 										<input class="input is-hovered is-fullwidth" type="text" name="vote2"
-											[(ngModel)]="voteCmd2" readonly>
+											[(ngModel)]="voteCmd2" readonly #vote2>
+											<span class="icon is-small is-right is-clickable"
+											(click)="copyToClipboard(vote2.value)" [ngxTippy]="'Text Coppied'"
+											[tippyProps]="tippyOptions">
+											<fa-icon [icon]="faCopy"></fa-icon>
+										</span>
 									</div>
 								</div>
 							</div>
