@@ -31,6 +31,7 @@ export class DelegateDetailsComponent {
   voteCmd1: string = '';
   voteCmd2: string = '';
   showSpinner: boolean = true;
+  sharedDelegate: boolean = false;
 
   async ngOnInit() {
     const config = this.loadconfigService.getConfig();
@@ -44,8 +45,10 @@ export class DelegateDetailsComponent {
         this.specifications = response.data.specifications;
         this.onlinePercent = response.data.onlinePercentage;
         this.fee = response.data.fee;
+        console.log(response.data.sharedDelegate)
         if (response.data.sharedDelegate) {
           this.delegateType = 'Shared Delegate';
+          this.sharedDelegate = true;
         } else {
           this.delegateType = 'Solo Delegate';
         }

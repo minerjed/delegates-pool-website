@@ -96,9 +96,10 @@
 							</p>
 						</header>
 						<div class="card-content has-text-centered pt-2">
-							<div class="content">
+							<div class="content" *ngIf="sharedDelegate">
 								<div class="field">
-									<label class="label pr-1">xCash-wallet-cli Voting Commands:</label>
+									<label class="label pr-1">
+										Use the xCash Destop Wallet or the xCash-wallet-cli for voting.  Here are examples of the xCash-wallet-cli voting commands for this delegate:</label>
 									<div class="control">
 										<input class="input is-hovered is-fullwidth" type="text" name="vote1"
 											[(ngModel)]="voteCmd1" readonly>
@@ -110,6 +111,11 @@
 										<input class="input is-hovered is-fullwidth" type="text" name="vote2"
 											[(ngModel)]="voteCmd2" readonly>
 									</div>
+								</div>
+							</div>
+							<div class="content" *ngIf="!sharedDelegate">
+								<div class="content">
+									<p>This node is a Solo Delegate. You can not vote for a Solo Delegate.</p>
 								</div>
 							</div>
 						</div>
