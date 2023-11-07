@@ -1,3 +1,12 @@
+<section class="has-background-black py-1">
+	<div class="columns">
+		<div class="column">
+			<h1 class="title has-text-white">&nbsp;
+				Delegate {{websiteName | uppercase}}&nbsp;&nbsp;Status:&nbsp;<span class={{texttype}}>{{online}}</span>
+			</h1>
+		</div>
+	</div>
+</section>
 <div class="notification is-warning mt-4" *ngIf="message">
 	<button class="delete" (click)="showMessage('');"></button>
 	<p class="is-centered">{{ message }}</p>
@@ -99,11 +108,12 @@
 							<div class="content" *ngIf="sharedDelegate">
 								<div class="field">
 									<label class="label pr-1">
-										Use the xCash Destop Wallet or the xCash-wallet-cli for voting.  Here are examples of the xCash-wallet-cli voting commands for this delegate:</label>
+										Use the xCash Destop Wallet or the xCash-wallet-cli for voting. Here are
+										examples of the xCash-wallet-cli voting commands for this delegate:</label>
 									<div class="control has-icons-right">
 										<input class="input is-hovered is-fullwidth" type="text" name="vote1"
 											[(ngModel)]="voteCmd1" readonly #vote1>
-											<span class="icon is-small is-right is-clickable"
+										<span class="icon is-small is-right is-clickable"
 											(click)="copyToClipboard(vote1.value)" [ngxTippy]="'Text Coppied'"
 											[tippyProps]="tippyOptions">
 											<fa-icon [icon]="faCopy"></fa-icon>
@@ -115,7 +125,7 @@
 									<div class="control has-icons-right">
 										<input class="input is-hovered is-fullwidth" type="text" name="vote2"
 											[(ngModel)]="voteCmd2" readonly #vote2>
-											<span class="icon is-small is-right is-clickable"
+										<span class="icon is-small is-right is-clickable"
 											(click)="copyToClipboard(vote2.value)" [ngxTippy]="'Text Coppied'"
 											[tippyProps]="tippyOptions">
 											<fa-icon [icon]="faCopy"></fa-icon>

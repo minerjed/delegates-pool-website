@@ -33,6 +33,10 @@ export class DelegateDetailsComponent {
   voteCmd2: string = '';
   showSpinner: boolean = true;
   sharedDelegate: boolean = false;
+  websiteURL: string = '';
+  websiteName: string = '';
+  online: string = '';
+  texttype: string = '';
   tippyOptions = {
     trigger: 'click',
     hideOnClick: false,
@@ -44,10 +48,11 @@ export class DelegateDetailsComponent {
   };
 
   async ngOnInit() {
+    this.websiteURL = window.location.hostname.toUpperCase();
     const config = this.loadconfigService.getConfig();
-    let websiteName = config.websiteName;
-    if (websiteName) {
-      const wsurl = 'https://api.xcash.live/v1/xcash/dpops/unauthorized/delegates/' + websiteName;
+    this.websiteName = config.websiteName;
+    if (this.websiteName) {
+      const wsurl = 'https://api.xcash.live/v1/xcash/dpops/unauthorized/delegates/' + this.websiteName;
       const response: httpReturn = await this.xcashdelegatesService.getDelegates(wsurl);
       if (response.status) {
         this.about = response.data.about;
@@ -65,6 +70,18 @@ export class DelegateDetailsComponent {
         // vote <delegates_public_address|delegates_name> <amount | "all">
         this.voteCmd1 = 'vote ' + response.data.delegateName + ' <amount | "all">';
         this.voteCmd2 = 'vote ' + response.data.publicAddress + ' <amount | "all">';
+        if (response.status) {
+          if (response.data.online) {
+            this.online = 'On-Line';
+            this.texttype = 'has-text-weight-semibold';
+          } else {
+            this.online = 'Off-Line';
+            this.texttype = 'has-text-danger has-text-weight-semibold';
+          }
+        } else {
+          this.online = 'Unknown';
+          this.texttype = 'has-text-danger has-text-weight-semibold';
+        }
         this.showInfo = true;
       } else {
         this.showMessage(response.message);
