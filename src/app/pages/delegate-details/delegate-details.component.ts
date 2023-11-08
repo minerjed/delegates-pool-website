@@ -73,7 +73,7 @@ export class DelegateDetailsComponent {
         if (response.status) {
           if (response.data.online) {
             this.online = 'On-Line';
-            this.texttype = 'has-text-weight-semibold';
+            this.texttype = 'has-text-success has-text-weight-semibold';
           } else {
             this.online = 'Off-Line';
             this.texttype = 'has-text-danger has-text-weight-semibold';
